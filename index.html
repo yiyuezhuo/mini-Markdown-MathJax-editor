@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Mini Markdown Editor</title>
+  <script src="bin/marked.js"></script>
+  <script src="bin/jquery.js"></script>
+  <script src="bin/integration.js"></script>
+  <link type="text/css" rel="stylesheet" href="markdown-css-themes-gh-pages\markdown5.css">
+</head>
+<body>
+	<header>
+		<input type="button" value="render" id="renderButton" style="width:50px">
+		<input type="button" value="print" id="printButton" style="width:50px">
+	</header>
+	<!--
+	<textarea style='overflow:scroll;overflow-y:hidden;;overflow-x:hidden' class="autoHeight">
+		# This is first level title
+		## second level title
+		$1+1=2$
+		I'm yiyuezhuo a man!
+	</textarea>
+	-->
+	<textarea  class="autoHeight" style="width:500px;height:500px" id="inputField">
+# This is first level title
+## second level title
+$1+1=2$
+$$ f(x)=sinx $$
+I'm yiyuezhuo a man!
+	</textarea>
+	<div id="renderField">${}$
+</div>
+
+</body>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+    src="MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script src="logic.js"></script>
+
+</html>

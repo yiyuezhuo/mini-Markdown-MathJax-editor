@@ -1,0 +1,52 @@
+﻿<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Mini Markdown Editor</title>
+  <script src="bin/marked.js"></script>
+  <script src="bin/jquery.js"></script>
+  <script src="bin/integration.js"></script>
+  <link type="text/css" rel="stylesheet" href="markdown-css-themes-gh-pages\markdown1.css">
+</head>
+<body>
+  <div id="content"></div>
+  <div id="content2"></div>
+  <div id="content3"></div>
+  <div id="content4">设随机变量 $\xi_\lambda$ 服从参数为 $\lambda$ 的泊松分布，试证明$\lambda \to \infty$,$$\frac{\xi_\lambda-\lambda}{\sqrt{\lambda}}$$的分布函数弱收敛于标准正态分布函数。
+
+证：
+由林德贝尔格-莱维中心极限定理，有
+$$ \mu_n = \frac{1}{\sqrt{n} \sigma}(\sum_{k=1}^n \xi_k-na) \sim N(0,1) \tag{$n \to +\infty$}$$
+其中$\xi_k$都是服从相同分布但独立的随机变量，这里设$\xi_k \sim P(1)$ ,$P(\lambda)$表示泊松分布。故$a=1,\sigma=1$，又由泊松分布对$\lambda$可加性，有$\sum_{k=1}^n \xi_k=\xi_n$ (这里下标n表示原题那个n，不是序列第n个的意思)
+故有
+$$ \mu_n = \frac{1}{\sqrt{n} }(\xi_n-n) \sim N(0,1) \tag{$n \to +\infty$}$$
+把$n$换成$\lambda$，整理得
+$$ \frac{\xi_\lambda-\lambda}{\sqrt{\lambda} }  \sim N(0,1) \tag{$\lambda \to +\infty$}$$
+证毕</div>
+<div id='content5'></div>
+<p> inline $ sin^2x+cos^2x=1 $ </p>
+<p> col $$sin^2x+cos^2x=1$$ </p>
+  <script>
+    document.getElementById('content').innerHTML =
+      marked('# Marked in browser\n\nRendered by **marked**.');
+	document.getElementById('content2').innerHTML ='# Marked in browser\n\nRendered by **marked**. $$sin^2x+cos^2x=1$$ ';
+  </script>
+  
+  <!-- <script src="Mathjax/Mathjax.js"></script> -->
+       <!--  <script type="text/javascript" src="MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<!-- <script type="text/javascript" src="MathJax/MathJax.js?config=TeX-AMS_HTML-full,Safe&amp;delayStartupUntil=configured" charset="utf-8"></script> -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+</body>
+</html>
