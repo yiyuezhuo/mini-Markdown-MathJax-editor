@@ -4,6 +4,7 @@ function rend(){
 	var renderField=$('#renderField');
 	renderField.empty();
 	renderTo(renderField,inputField[0].value);
+	console.log(inputField[0].value);
 	//window.UpdateMath(inputField[0].value);
 	MathJax.Hub.Typeset(renderField[0]);
 }
@@ -42,9 +43,25 @@ function parseParam(){
 	return Request;
 }
 printButton.on('click',function(){
-	window.open('index.html?print=true');
+	var win=window.open();
+	inputField.html(inputField[0].value);
+	renderField.empty();
+	var s=$('html').html()//+'</html>';
+	var s2=' <script type="text/x-mathjax-config"> MathJax.Hub.Config({tex2jax: {inlineMath: [ ["$","$"], ["\\(","\\)"] ],processEscapes: true}});</script>'
+	win.document.open();
+	win.document.write('<!doctype html><html>'+s2+s);
+	win.document.write('<script>'+'printS()'+'</script>');
+	win.document.write("</html>");
+	win.document.close();
 })
+
 var param=parseParam();
+function printS(){
+	rend();
+	$('header').hide();
+	inputField.hide();
+	renderField.show();
+}
 if (param['print']==='true'){
 	$('header').hide();
 	inputField.hide();
